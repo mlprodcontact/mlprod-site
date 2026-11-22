@@ -5,7 +5,8 @@ fetch('content.json?v=' + Date.now())
     const fondVideo = document.getElementById('heroVideo');
 fondVideo.muted = true;
 fondVideo.src = data.accueil.videoFond;
-fondVideo.play().catch(() => {});
+fondVideo.play().catch(() => {});fondVideo.addEventListener('playing', () => fondVideo.classList.add('lecture'));
+
     document.getElementById('heroTitre').textContent = data.accueil.titre;
     document.getElementById('heroSlogan').textContent = data.accueil.slogan;
 
