@@ -2,7 +2,10 @@ fetch('content.json?v=' + Date.now())
   .then(r => r.json())
   .then(data => {
     // Accueil
-    document.getElementById('heroVideo').src = data.accueil.videoFond;
+    const fondVideo = document.getElementById('heroVideo');
+fondVideo.muted = true;
+fondVideo.src = data.accueil.videoFond;
+fondVideo.play().catch(() => {});
     document.getElementById('heroTitre').textContent = data.accueil.titre;
     document.getElementById('heroSlogan').textContent = data.accueil.slogan;
 
