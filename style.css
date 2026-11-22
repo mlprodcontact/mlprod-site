@@ -78,3 +78,4 @@ footer { text-align:center; padding:2.5rem; color:#555; font-size:.75rem; letter
 #apropos .rond { width:100%; max-width:320px; aspect-ratio:1; background:#fff; border-radius:50%; border:2px solid var(--or); margin:auto; display:flex; align-items:center; justify-content:center; padding:15%; }
 #apropos .rond img { width:100% !important; height:auto !important; aspect-ratio:auto !important; object-fit:contain !important; border-radius:0 !important; padding:0 !important; border:none !important; background:none !important; max-width:none !important; filter:none; }
 .infos a { color:inherit !important; text-decoration:none; }
+.lightbox img { max-width:min(90%,480px) !important; max-height:60vh !important; }
