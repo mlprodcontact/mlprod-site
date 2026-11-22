@@ -51,3 +51,6 @@ footer { text-align:center; padding:2rem; color:#777; font-size:.8rem; }
 .hero video::-webkit-media-controls,
 .hero video::-webkit-media-controls-start-playback-button,
 .hero video::-webkit-media-controls-panel { display:none !important; -webkit-appearance:none; }
+.hero { background:#0b0b0b; }
+.hero video { opacity:0; transition:opacity 1.2s ease; }
+.hero video.lecture { opacity:1; }
