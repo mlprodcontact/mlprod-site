@@ -7,7 +7,8 @@ fondVideo.muted = true;
 fondVideo.setAttribute('playsinline', '');
 fondVideo.setAttribute('disablepictureinpicture', '');
 fondVideo.addEventListener('timeupdate', () => {
-  if (fondVideo.currentTime > 0.5) fondVideo.classList.add('lecture');
+ if (fondVideo.currentTime > 1.5) fondVideo.classList.add('lecture');
+
 });
 fondVideo.src = data.accueil.videoFond;
 fondVideo.play().catch(() => {});
