@@ -75,3 +75,4 @@ footer { text-align:center; padding:2.5rem; color:#555; font-size:.75rem; letter
   .apropos h2 { text-align:center; }
   .apropos h2::after { margin-left:auto; }
 }
+#apropos #aproposPhoto { object-fit:contain !important; aspect-ratio:1 !important; width:100%; max-width:320px; background:#fff; border-radius:50%; padding:2.5rem 2rem 3rem !important; border:2px solid var(--or); margin:auto; display:block; filter:none; }
