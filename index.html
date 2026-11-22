@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ML Prod – Vidéaste mariage</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <header class="nav">
@@ -13,7 +13,7 @@
     <button class="burger" aria-label="Menu">☰</button>
     <nav class="menu">
       <a href="#accueil">Accueil</a>
-      <a href="#videos">Vidéo</a>
+      <a href="#galerie">Galerie</a>
       <a href="#apropos">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -24,14 +24,16 @@
     <div class="hero-text">
       <h1 id="heroTitre"></h1>
       <p id="heroSlogan"></p>
-      <a href="#videos" class="btn">Voir mes films</a>
+      <a href="#galerie" class="btn">Voir la galerie</a>
     </div>
   </section>
 
-  <section id="videos" class="section">
-    <h2>Mes films</h2>
-    <div id="galerie" class="galerie"></div>
+  <section id="galerie" class="section">
+    <h2>Galerie</h2>
+    <div id="photosGrille" class="photos"></div>
   </section>
+
+  <div id="lightbox" class="lightbox"><img id="lightboxImg" alt="Photo agrandie"></div>
 
   <section id="apropos" class="section apropos">
     <img id="aproposPhoto" alt="Portrait ML Prod">
@@ -56,6 +58,6 @@
   </section>
 
   <footer>© ML Prod – Vidéaste de mariage</footer>
- <script src="app.js?v=3"></script>
-
+  <script src="app.js?v=5"></script>
+</body>
 </html>
