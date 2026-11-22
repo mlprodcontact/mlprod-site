@@ -2,13 +2,16 @@ fetch('content.json?v=' + Date.now())
   .then(r => r.json())
   .then(data => {
     // Accueil
-   const fondVideo = document.getElementById('heroVideo');
-const afficherVideo = () => fondVideo.classList.add('lecture');
-fondVideo.addEventListener('playing', afficherVideo);
-fondVideo.addEventListener('timeupdate', afficherVideo);
+  const fondVideo = document.getElementById('heroVideo');
 fondVideo.muted = true;
+fondVideo.setAttribute('playsinline', '');
+fondVideo.setAttribute('disablepictureinpicture', '');
+fondVideo.addEventListener('timeupdate', () => {
+  if (fondVideo.currentTime > 0.5) fondVideo.classList.add('lecture');
+});
 fondVideo.src = data.accueil.videoFond;
-fondVideo.play().then(afficherVideo).catch(() => {});
+fondVideo.play().catch(() => {});
+
     document.getElementById('heroTitre').textContent = data.accueil.titre;
     document.getElementById('heroSlogan').textContent = data.accueil.slogan;
 
