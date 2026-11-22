@@ -8,14 +8,14 @@ h2::after { content:""; display:block; width:50px; height:1px; background:var(--
 
 /* Menu */
 .nav { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:1.3rem 6%; z-index:10; background:rgba(11,11,11,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--ligne); }
-.logo { font-family:'Playfair Display'; font-size:1.5rem; color:var(--blanc); text-decoration:none; letter-spacing:1px; }
+.logo { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--blanc); text-decoration:none; letter-spacing:1px; }
 .logo span { color:var(--or); margin-left:4px; }
 .menu a { color:var(--doux); text-decoration:none; margin-left:2.5rem; letter-spacing:3px; text-transform:uppercase; font-size:.75rem; transition:.3s; }
 .menu a:hover { color:var(--or); }
 .burger { display:none; background:none; border:none; color:var(--blanc); font-size:1.6rem; cursor:pointer; }
 
 /* Accueil et vidéo de fond */
-.hero { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; background:#0b0b0b; }
+.hero { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; background:var(--noir); }
 .hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.4); pointer-events:none; opacity:0; transition:opacity 1.2s ease; }
 .hero video.lecture { opacity:1; }
 .hero video::-webkit-media-controls,
@@ -37,17 +37,20 @@ h2::after { content:""; display:block; width:50px; height:1px; background:var(--
 .photos img { width:100%; aspect-ratio:1; object-fit:cover; cursor:zoom-in; transition:.3s; display:block; }
 .photos img:hover { opacity:.75; }
 
-/* Agrandissement en pop-up */
+/* Agrandissement en pop-up (taille réduite) */
 .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:100; cursor:zoom-out; padding:1.5rem; }
 .lightbox.ouverte { display:flex; }
-.lightbox img { max-width:min(100%,900px); max-height:80vh; box-shadow:0 0 40px rgba(0,0,0,.6); }
+.lightbox img { max-width:min(90%,480px); max-height:60vh; box-shadow:0 0 40px rgba(0,0,0,.6); }
 
 /* À propos */
 .apropos { display:grid; grid-template-columns:1fr 1.2fr; gap:4rem; align-items:center; }
-.apropos img { width:100%; max-width:320px; aspect-ratio:1; object-fit:contain; background:#fff; border-radius:50%; padding:3rem 3.5rem 4.2rem; border:2px solid var(--or); margin:auto; display:block; }
 .apropos h2 { text-align:left; }
 .apropos h2::after { margin-left:0; }
 .apropos p { color:var(--doux); font-size:1.05rem; }
+
+/* Logo dans un rond */
+.rond { width:100%; max-width:320px; aspect-ratio:1; background:#fff; border-radius:50%; border:2px solid var(--or); margin:auto; display:flex; align-items:center; justify-content:center; padding:15%; }
+.rond img { width:100%; height:auto; display:block; }
 
 /* Contact */
 .form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:1.2rem; }
@@ -56,6 +59,7 @@ h2::after { content:""; display:block; width:50px; height:1px; background:var(--
 .form input::placeholder, .form textarea::placeholder { color:#666; }
 .form .btn { align-self:center; margin-top:1.5rem; }
 .infos { text-align:center; margin-top:3rem; color:var(--doux); font-size:.85rem; letter-spacing:1px; }
+.infos a { color:inherit; text-decoration:none; }
 footer { text-align:center; padding:2.5rem; color:#555; font-size:.75rem; letter-spacing:2px; border-top:1px solid var(--ligne); }
 
 /* Tablette */
@@ -75,7 +79,3 @@ footer { text-align:center; padding:2.5rem; color:#555; font-size:.75rem; letter
   .apropos h2 { text-align:center; }
   .apropos h2::after { margin-left:auto; }
 }
-#apropos .rond { width:100%; max-width:320px; aspect-ratio:1; background:#fff; border-radius:50%; border:2px solid var(--or); margin:auto; display:flex; align-items:center; justify-content:center; padding:15%; }
-#apropos .rond img { width:100% !important; height:auto !important; aspect-ratio:auto !important; object-fit:contain !important; border-radius:0 !important; padding:0 !important; border:none !important; background:none !important; max-width:none !important; filter:none; }
-.infos a { color:inherit !important; text-decoration:none; }
-.lightbox img { max-width:min(90%,480px) !important; max-height:60vh !important; }
