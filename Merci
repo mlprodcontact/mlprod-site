@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci – ML Prod</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
+  <style>
+    .merci { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 1.5rem; }
+    .merci h1 { font-size:clamp(2.5rem,8vw,4.5rem); color:var(--or); margin-bottom:1rem; }
+    .merci p { font-size:1.1rem; line-height:1.8; margin-bottom:2.5rem; max-width:550px; color:var(--doux); }
+  </style>
+</head>
+<body>
+  <section class="merci">
+    <h1>Merci !</h1>
+    <p>Votre message a bien été envoyé. Je vous réponds très vite pour parler de votre union.</p>
+    <a href="index.html" class="btn">Retour au site</a>
+  </section>
+</body>
+</html>
