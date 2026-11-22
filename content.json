@@ -1,0 +1,20 @@
+{
+  "accueil": {
+    "titre": "ML Prod",
+    "slogan": "Vos plus beaux souvenirs, racontés comme un film",
+    "videoFond": "https://www.w3schools.com/html/mov_bbb.mp4"
+  },
+  "videos": [
+    { "titre": "Julie & Thomas", "lieu": "Perpignan", "youtube": "dQw4w9WgXcQ" },
+    { "titre": "Sarah & Karim", "lieu": "Collioure", "youtube": "dQw4w9WgXcQ" }
+  ],
+  "apropos": {
+    "titre": "Qui suis-je ?",
+    "texte": "Vidéaste passionné, je capture l'émotion de votre mariage avec un regard cinématographique et moderne.",
+    "photo": "https://picsum.photos/600/700"
+  },
+  "contact": {
+    "email": "mlprod.contact@gmail.com",
+    "telephone": "06 00 00 00 00"
+  }
+}

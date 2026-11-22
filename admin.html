@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin ML Prod</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body { font-family:sans-serif; background:#0e0e0e; color:#f5f5f5; max-width:700px; margin:auto; padding:2rem 1rem; }
+    h1 { color:#c9a96e; } h2 { color:#c9a96e; margin-top:2rem; font-size:1.1rem; }
+    label { display:block; margin-top:1rem; font-size:.9rem; }
+    input, textarea { width:100%; padding:.7rem; margin-top:.3rem; background:#1a1a1a; color:#fff; border:1px solid #333; box-sizing:border-box; }
+    button { margin-top:1.5rem; padding:1rem 2rem; background:#c9a96e; border:none; cursor:pointer; font-weight:bold; }
+    #msg { margin-top:1rem; }
+  </style>
+</head>
+<body>
+  <h1>Administration ML Prod</h1>
+
+  <h2>Connexion GitHub</h2>
+  <label>Nom d'utilisateur GitHub <input id="user"></label>
+  <label>Nom du dépôt <input id="repo" value="mlprod-site"></label>
+  <label>Jeton d'accès (token) <input id="token" type="password"></label>
+  <button onclick="charger()">Charger le contenu</button>
+
+  <div id="editeur" hidden>
+    <h2>Accueil</h2>
+    <label>Titre <input id="titre"></label>
+    <label>Slogan <input id="slogan"></label>
+    <label>Lien de la vidéo de fond (.mp4) <input id="videoFond"></label>
+
+    <h2>Vidéos (une par ligne : Titre | Lieu | code YouTube)</h2>
+    <textarea id="videos" rows="6"></textarea>
+
+    <h2>À propos</h2>
+    <label>Titre <input id="apTitre"></label>
+    <label>Texte <textarea id="apTexte" rows="5"></textarea></label>
+    <label>Lien de la photo <input id="apPhoto"></label>
+
+    <h2>Contact</h2>
+    <label>E-mail <input id="email"></label>
+    <label>Téléphone <input id="tel"></label>
+
+    <button onclick="enregistrer()">Enregistrer sur le site</button>
+  </div>
+  <p id="msg"></p>
+
+<script>
+let sha = '';
+const $ = id => document.getElementById(id);
+const api = () => `https://api.github.com/repos/${$('user').value}/${$('repo').value}/contents/content.json`;
+const headers = () => ({ Authorization: 'token ' + $('token').value, Accept: 'application/vnd.github+json' });
+
+['user','repo'].forEach(k => { if (localStorage[k]) $(k).value = localStorage[k]; });
+
+async function charger() {
+  localStorage.user = $('user').value; localStorage.repo = $('repo').value;
+  const r = await fetch(api(), { headers: headers() });
+  if (!r.ok) { $('msg').textContent = 'Erreur de connexion : vérifie le nom, le dépôt et le token.'; return; }
+  const f = await r.json(); sha = f.sha;
+  const d = JSON.parse(decodeURIComponent(escape(atob(f.content))));
+  $('titre').value = d.accueil.titre; $('slogan').value = d.accueil.slogan; $('videoFond').value = d.accueil.videoFond;
+  $('videos').value = d.videos.map(v => `${v.titre} | ${v.lieu} | ${v.youtube}`).join('\n');
+  $('apTitre').value = d.apropos.titre; $('apTexte').value = d.apropos.texte; $('apPhoto').value = d.apropos.photo;
+  $('email').value = d.contact.email; $('tel').value = d.contact.telephone;
+  $('editeur').hidden = false; $('msg').textContent = 'Contenu chargé.';
+}
+
+async function enregistrer() {
+  const d = {
+    accueil: { titre: $('titre').value, slogan: $('slogan').value, videoFond: $('videoFond').value },
+    videos: $('videos').value.split('\n').filter(l => l.trim()).map(l => {
+      const [titre, lieu, youtube] = l.split('|').map(s => s.trim());
+      return { titre, lieu, youtube };
+    }),
+    apropos: { titre: $('apTitre').value, texte: $('apTexte').value, photo: $('apPhoto').value },
+    contact: { email: $('email').value, telephone: $('tel').value }
+  };
+  const contenu = btoa(unescape(encodeURIComponent(JSON.stringify(d, null, 2))));
+  const r = await fetch(api(), { method: 'PUT', headers: headers(),
+    body: JSON.stringify({ message: 'Mise à jour du contenu', content: contenu, sha }) });
+  if (r.ok) { sha = (await r.json()).content.sha; $('msg').textContent = '✅ Enregistré ! Le site sera à jour dans 1 à 2 minutes.'; }
+  else $('msg').textContent = '❌ Erreur à l\'enregistrement.';
+}
+</script>
+</body>
+</html>
