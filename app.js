@@ -1,6 +1,6 @@
 // Réglages de la galerie
 const NB_PHOTOS = 28;
-const DEBUT_NOM = 'photos/Photo';
+const DEBUT_NOM = 'Photos/Photo';
 const EXTENSION = '.jpeg';
 
 fetch('content.json?v=' + Date.now())
