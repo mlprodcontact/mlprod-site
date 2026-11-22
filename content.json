@@ -1,12 +1,20 @@
 {
   "accueil": {
     "titre": "ML Prod",
-    "slogan": "Vos plus beaux souvenirs, racontés comme un film",
+    "slogan": "Votre union, notre inspiration.",
     "videoFond": "https://www.w3schools.com/html/mov_bbb.mp4"
   },
   "videos": [
-    { "titre": "Julie & Thomas", "lieu": "Perpignan", "youtube": "dQw4w9WgXcQ" },
-    { "titre": "Sarah & Karim", "lieu": "Collioure", "youtube": "dQw4w9WgXcQ" }
+    {
+      "titre": "Julie & Thomas",
+      "lieu": "Perpignan",
+      "youtube": "dQw4w9WgXcQ"
+    },
+    {
+      "titre": "Sarah & Karim",
+      "lieu": "Collioure",
+      "youtube": "dQw4w9WgXcQ"
+    }
   ],
   "apropos": {
     "titre": "Qui suis-je ?",
