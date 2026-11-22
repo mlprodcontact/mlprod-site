@@ -1,7 +1,7 @@
 {
   "accueil": {
-    "titre": "ML Prod",
-    "slogan": "Votre union, notre inspiration.",
+    "titre": "MLPROD - VIDEASTE DE MARIAGE",
+    "slogan": "Votre union, mon inspiration.",
     "videoFond": "fond.mp4"
   },
   "videos": [
@@ -18,11 +18,11 @@
   ],
   "apropos": {
     "titre": "Qui suis-je ?",
-    "texte": "Vidéaste passionné, je capture l'émotion de votre mariage avec un regard cinématographique et moderne.",
+    "texte": "Pour votre mariage, contactez un artisan ou .... choisissez un artiste",
     "photo": "https://picsum.photos/600/700"
   },
   "contact": {
-    "email": "mlprod.contact@gmail.com",
-    "telephone": "06 00 00 00 00"
+    "email": "video@gmail.com",
+    "telephone": "06 17 23 24 87"
   }
 }
